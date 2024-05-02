@@ -1,5 +1,5 @@
 # pong
-Pong with output to VGA display, written for implementation on nexys a7 dev board (part no. xc7a100tcsg324-1)
+Pong with output to VGA display, written in VHDL for implementation on nexys a7 dev board (part no. xc7a100tcsg324-1)
 
 ## To-do
 - Build script
