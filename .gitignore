@@ -9,3 +9,4 @@ project/*.jou
 project/*.txt
 project/*.xpr
 project/*.Xil
+project/*.log
