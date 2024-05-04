@@ -1,1 +1,11 @@
-project/*
+project/*.cache
+project/*.gen
+project/*.hw
+project/*.ip_user_files
+project/*.runs
+project/*.sim
+project/*.srcs
+project/*.jou
+project/*.txt
+project/*.xpr
+project/*.Xil
