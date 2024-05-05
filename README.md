@@ -17,11 +17,20 @@ Pong with output to VGA display, written in VHDL for implementation on nexys a7 
 
 
 ## Output example
- 
+Controlling up/down movement of the left paddle with push buttons on the dev board, CPU right paddle just tracks ball vertical position. 
+![](https://github.com/jswenke/pong/blob/main/gif_and_misc/pong_vga_output.gif)
+
 
 
 ## To-do
+### Features
+- Try different methods of pseudo-randomizing the initial ball position/velocity
+- Change ball velocity when hitting P1 or CPU paddle
+- CPU difficulty modes
+- Win/Loss record
+- Visual/audio cues & effects
+
+### Documentation
 - Further comments on time sync done for some of the VGA related signals in top file
-- Comments on pong_game_logic.vhd, walkthrough?
-- Image/GIF of gameplay on display
+- Logic walkthrough/state diagrams for hdl/pong_game_logic
 
