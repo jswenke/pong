@@ -94,6 +94,8 @@ architecture rtl of pong_game_logic is
 	signal initial_vert_dir_tmp : std_logic := '1';
 	signal initial_horz_dir_tmp : std_logic := '0';
 		
+    signal horz_spd_ratechange : integer := 1;		
+	signal vert_spd_ratechange : integer := 1;
 	
 begin
 
@@ -142,9 +144,11 @@ begin
 		else
 			case ps_vertmove_ball is
 				when st_vertmove_wait_for_start =>
-                    BALL_VERT_POS_BOT <= BALL_VERT_STARTPOS;
-                    vert_counter_up <= 0;
-                    vert_counter_down <= 0;
+                    BALL_VERT_POS_BOT   <= BALL_VERT_STARTPOS;
+                    vert_counter_up     <= 0;
+                    vert_counter_down   <= 0;
+                    --horz_spd_ratechange <= 0;
+                    --vert_spd_ratechange <= 0;
                     if(game_start = '1' and initial_vert_dir = '1') then
                         load_counters <= '1';
                         ps_vertmove_ball <= st_ball_up;                        
@@ -159,8 +163,9 @@ begin
                         ps_vertmove_ball <= st_vertmove_wait_for_start;
                     else
                         vert_counter_down <= 0;
-                        if((BALL_VERT_POS_BOT < BORDER_FRAME_WIDTH + 1) or ((BALL_VERT_POS_BOT <= PADDLE_CURRENTPOS_BOT + PADDLE_HEIGHT + BALL_HEIGHT) and (BALL_HORZ_POS_LEFT <= PADDLE_HORZ_POS + PADDLE_WIDTH))) then  
-                            ps_vertmove_ball <= st_ball_down;
+                        if((BALL_VERT_POS_BOT < BORDER_FRAME_WIDTH + 1)) then --or ((BALL_VERT_POS_BOT <= PADDLE_CURRENTPOS_BOT + PADDLE_HEIGHT + BALL_HEIGHT) and (BALL_HORZ_POS_LEFT <= PADDLE_HORZ_POS + PADDLE_WIDTH))) then  
+                            ps_vertmove_ball    <= st_ball_down;
+                            --vert_spd_ratechange <= vert_spd_ratechange + 1;
                         else
                             if(vert_counter_up < vert_counter_max) then
                                 vert_counter_up <= vert_counter_up + 1;
@@ -176,9 +181,10 @@ begin
                     if(game_round_done = '1') then
                         ps_vertmove_ball <= st_vertmove_wait_for_start;
                     else
-                        vert_counter_up <= 0; -- THINK HITTING THE BALL WITH THE BOTTOM ON THE WAY DOWN ISN'T FUNCTIONING AS INTENDED?
-                        if((BALL_VERT_POS_BOT > V_VISIBLE_AREA - BORDER_FRAME_WIDTH) or ((BALL_VERT_POS_BOT >= PADDLE_CURRENTPOS_BOT - BALL_HEIGHT) and (BALL_HORZ_POS_LEFT <= PADDLE_HORZ_POS + PADDLE_WIDTH))) then                                                 
-                            ps_vertmove_ball <= st_ball_up;
+                        vert_counter_up <= 0; 
+                        if((BALL_VERT_POS_BOT > V_VISIBLE_AREA - BORDER_FRAME_WIDTH)) then -- or ((BALL_VERT_POS_BOT >= PADDLE_CURRENTPOS_BOT - BALL_HEIGHT) and (BALL_HORZ_POS_LEFT <= PADDLE_HORZ_POS + PADDLE_WIDTH))) then                                                 
+                            ps_vertmove_ball    <= st_ball_up;
+                            --vert_spd_ratechange <= vert_spd_ratechange + 1;
                         else
                             if(vert_counter_down < vert_counter_max) then
                                 vert_counter_down <= vert_counter_down + 1;
@@ -223,6 +229,7 @@ begin
                         if(((BALL_HORZ_POS_LEFT <= PADDLE_HORZ_POS + PADDLE_WIDTH - 2) and ((BALL_VERT_POS_BOT >= PADDLE_CURRENTPOS_BOT) and -- CASE 3: BALL HITS PLAYER PADDLE
                         (BALL_VERT_POS_BOT <= PADDLE_CURRENTPOS_BOT + PADDLE_HEIGHT)))) then
                             ps_horzmove_ball <= st_ball_right;
+                            --horz_spd_ratechange <= horz_spd_ratechange + 1;
                         else
                             if(horz_counter_left <  horz_counter_max) then
                                 horz_counter_left <= horz_counter_left + 1;
@@ -242,6 +249,7 @@ begin
                         if(((BALL_HORZ_POS_LEFT > CPU_PADDLE_HORZ_POS - 1) and ((BALL_VERT_POS_BOT >= CPU_PADDLE_CURRENTPOS_BOT) and -- CASE 4: BALL HITS CPU PADDLE
                         (BALL_VERT_POS_BOT <= CPU_PADDLE_CURRENTPOS_BOT + PADDLE_HEIGHT - BALL_HEIGHT)))) then
                             ps_horzmove_ball <= st_ball_left;
+                            --horz_spd_ratechange <= horz_spd_ratechange + 1;
                         else
                             if(horz_counter_right <  horz_counter_max) then
                                 horz_counter_right <= horz_counter_right + 1;

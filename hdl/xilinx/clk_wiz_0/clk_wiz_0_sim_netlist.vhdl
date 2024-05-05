@@ -2,10 +2,10 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
--- Date        : Wed May  1 21:28:39 2024
+-- Date        : Sun May  5 12:54:10 2024
 -- Host        : DESKTOP-JACOB running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim {c:/Users/Jacob/Desktop/FPGA
---               study/Github/Repos/pong/hdl/xilinx/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl}
+-- Command     : write_vhdl -force -mode funcsim
+--               c:/Users/Jacob/Desktop/FPGA_study/Github/Repos/pong/hdl/xilinx/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl
 -- Design      : clk_wiz_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -21,14 +21,14 @@ entity clk_wiz_0_clk_wiz is
     o_clk_200MHz : out STD_LOGIC;
     reset : in STD_LOGIC;
     locked : out STD_LOGIC;
-    i_clk_108MHz : in STD_LOGIC
+    i_clk_100MHz : in STD_LOGIC
   );
 end clk_wiz_0_clk_wiz;
 
 architecture STRUCTURE of clk_wiz_0_clk_wiz is
   signal clkfbout_buf_clk_wiz_0 : STD_LOGIC;
   signal clkfbout_clk_wiz_0 : STD_LOGIC;
-  signal i_clk_108MHz_clk_wiz_0 : STD_LOGIC;
+  signal i_clk_100MHz_clk_wiz_0 : STD_LOGIC;
   signal o_clk_108MHz_clk_wiz_0 : STD_LOGIC;
   signal o_clk_200MHz_clk_wiz_0 : STD_LOGIC;
   signal NLW_mmcm_adv_inst_CLKFBOUTB_UNCONNECTED : STD_LOGIC;
@@ -69,8 +69,8 @@ clkin1_ibufg: unisim.vcomponents.IBUF
       IOSTANDARD => "DEFAULT"
     )
         port map (
-      I => i_clk_108MHz,
-      O => i_clk_108MHz_clk_wiz_0
+      I => i_clk_100MHz,
+      O => i_clk_100MHz_clk_wiz_0
     );
 clkout1_buf: unisim.vcomponents.BUFG
      port map (
@@ -138,7 +138,7 @@ mmcm_adv_inst: unisim.vcomponents.MMCME2_ADV
       CLKFBOUT => clkfbout_clk_wiz_0,
       CLKFBOUTB => NLW_mmcm_adv_inst_CLKFBOUTB_UNCONNECTED,
       CLKFBSTOPPED => NLW_mmcm_adv_inst_CLKFBSTOPPED_UNCONNECTED,
-      CLKIN1 => i_clk_108MHz_clk_wiz_0,
+      CLKIN1 => i_clk_100MHz_clk_wiz_0,
       CLKIN2 => '0',
       CLKINSEL => '1',
       CLKINSTOPPED => NLW_mmcm_adv_inst_CLKINSTOPPED_UNCONNECTED,
@@ -179,7 +179,7 @@ entity clk_wiz_0 is
     o_clk_200MHz : out STD_LOGIC;
     reset : in STD_LOGIC;
     locked : out STD_LOGIC;
-    i_clk_108MHz : in STD_LOGIC
+    i_clk_100MHz : in STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of clk_wiz_0 : entity is true;
@@ -189,7 +189,7 @@ architecture STRUCTURE of clk_wiz_0 is
 begin
 inst: entity work.clk_wiz_0_clk_wiz
      port map (
-      i_clk_108MHz => i_clk_108MHz,
+      i_clk_100MHz => i_clk_100MHz,
       locked => locked,
       o_clk_108MHz => o_clk_108MHz,
       o_clk_200MHz => o_clk_200MHz,

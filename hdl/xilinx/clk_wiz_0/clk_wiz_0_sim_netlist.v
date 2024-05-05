@@ -2,10 +2,10 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-// Date        : Wed May  1 21:28:39 2024
+// Date        : Sun May  5 12:54:10 2024
 // Host        : DESKTOP-JACOB running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim {c:/Users/Jacob/Desktop/FPGA
-//               study/Github/Repos/pong/hdl/xilinx/clk_wiz_0/clk_wiz_0_sim_netlist.v}
+// Command     : write_verilog -force -mode funcsim
+//               c:/Users/Jacob/Desktop/FPGA_study/Github/Repos/pong/hdl/xilinx/clk_wiz_0/clk_wiz_0_sim_netlist.v
 // Design      : clk_wiz_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -19,21 +19,21 @@ module clk_wiz_0
     o_clk_200MHz,
     reset,
     locked,
-    i_clk_108MHz);
+    i_clk_100MHz);
   output o_clk_108MHz;
   output o_clk_200MHz;
   input reset;
   output locked;
-  input i_clk_108MHz;
+  input i_clk_100MHz;
 
-  (* IBUF_LOW_PWR *) wire i_clk_108MHz;
+  (* IBUF_LOW_PWR *) wire i_clk_100MHz;
   wire locked;
   wire o_clk_108MHz;
   wire o_clk_200MHz;
   wire reset;
 
   clk_wiz_0_clk_wiz inst
-       (.i_clk_108MHz(i_clk_108MHz),
+       (.i_clk_100MHz(i_clk_100MHz),
         .locked(locked),
         .o_clk_108MHz(o_clk_108MHz),
         .o_clk_200MHz(o_clk_200MHz),
@@ -45,17 +45,17 @@ module clk_wiz_0_clk_wiz
     o_clk_200MHz,
     reset,
     locked,
-    i_clk_108MHz);
+    i_clk_100MHz);
   output o_clk_108MHz;
   output o_clk_200MHz;
   input reset;
   output locked;
-  input i_clk_108MHz;
+  input i_clk_100MHz;
 
   wire clkfbout_buf_clk_wiz_0;
   wire clkfbout_clk_wiz_0;
-  wire i_clk_108MHz;
-  wire i_clk_108MHz_clk_wiz_0;
+  wire i_clk_100MHz;
+  wire i_clk_100MHz_clk_wiz_0;
   wire locked;
   wire o_clk_108MHz;
   wire o_clk_108MHz_clk_wiz_0;
@@ -89,8 +89,8 @@ module clk_wiz_0_clk_wiz
   IBUF #(
     .IOSTANDARD("DEFAULT")) 
     clkin1_ibufg
-       (.I(i_clk_108MHz),
-        .O(i_clk_108MHz_clk_wiz_0));
+       (.I(i_clk_100MHz),
+        .O(i_clk_100MHz_clk_wiz_0));
   (* BOX_TYPE = "PRIMITIVE" *) 
   BUFG clkout1_buf
        (.I(o_clk_108MHz_clk_wiz_0),
@@ -154,7 +154,7 @@ module clk_wiz_0_clk_wiz
         .CLKFBOUT(clkfbout_clk_wiz_0),
         .CLKFBOUTB(NLW_mmcm_adv_inst_CLKFBOUTB_UNCONNECTED),
         .CLKFBSTOPPED(NLW_mmcm_adv_inst_CLKFBSTOPPED_UNCONNECTED),
-        .CLKIN1(i_clk_108MHz_clk_wiz_0),
+        .CLKIN1(i_clk_100MHz_clk_wiz_0),
         .CLKIN2(1'b0),
         .CLKINSEL(1'b1),
         .CLKINSTOPPED(NLW_mmcm_adv_inst_CLKINSTOPPED_UNCONNECTED),

@@ -72,15 +72,15 @@ module clk_wiz_0_clk_wiz
   // Status and control signals
   input         reset,
   output        locked,
-  input         i_clk_108MHz
+  input         i_clk_100MHz
  );
   // Input buffering
   //------------------------------------
-wire i_clk_108MHz_clk_wiz_0;
+wire i_clk_100MHz_clk_wiz_0;
 wire clk_in2_clk_wiz_0;
   IBUF clkin1_ibufg
-   (.O (i_clk_108MHz_clk_wiz_0),
-    .I (i_clk_108MHz));
+   (.O (i_clk_100MHz_clk_wiz_0),
+    .I (i_clk_100MHz));
 
 
 
@@ -156,7 +156,7 @@ wire clk_in2_clk_wiz_0;
     .CLKOUT6             (clkout6_unused),
      // Input clock control
     .CLKFBIN             (clkfbout_buf_clk_wiz_0),
-    .CLKIN1              (i_clk_108MHz_clk_wiz_0),
+    .CLKIN1              (i_clk_100MHz_clk_wiz_0),
     .CLKIN2              (1'b0),
      // Tied to always select the primary input clock
     .CLKINSEL            (1'b1),

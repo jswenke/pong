@@ -75,7 +75,7 @@
     .reset(reset), // input reset
     .locked(locked),       // output locked
    // Clock in ports
-    .i_clk_108MHz(i_clk_108MHz)      // input i_clk_108MHz
+    .i_clk_100MHz(i_clk_100MHz)      // input i_clk_100MHz
 );
 
 // INST_TAG_END ------ End INSTANTIATION Template ---------

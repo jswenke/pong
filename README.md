@@ -3,10 +3,21 @@ Pong with output to VGA display, written in VHDL for implementation on nexys a7 
 
 
 
-## Building project
+## Creating & building project
+### Option 1
 1. Open git bash, consider $origin_dir as the root directory of the repo
 
 `source $origin_dir/scripts/build_project.tcl`
+
+### Option 2
+1. Open Vivado 2023.2 GUI
+2. Click Tools > Run Tcl Script...
+3. Select $origin_dir/scripts/build_project.tcl
+
+
+
+## Output example
+ 
 
 
 ## To-do
