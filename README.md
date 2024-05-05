@@ -17,9 +17,10 @@ Pong with output to VGA display, written in VHDL for implementation on nexys a7 
 
 
 ## Output example
-Controlling up/down movement of the left paddle with push buttons on the dev board, CPU right paddle just tracks ball vertical position. 
-![](https://github.com/jswenke/pong/blob/main/gif_and_misc/pong_vga_output.gif)
+Controlling up/down movement of the left paddle with push buttons on the dev board, CPU right paddle just tracks ball vertical position
 
+![](https://github.com/jswenke/pong/blob/main/gif_and_misc/pong_vga_output.gif)
+Note: visual distortion in top middle of screen is due to degrading monitor hardware, not errors in the VGA HDL sections
 
 
 ## To-do
