@@ -25,6 +25,7 @@ Note: visual distortion in top middle of screen is due to degrading monitor hard
 
 ## To-do
 ### Features
+- Simulation with verilator and vivado sim/modelsim
 - Try different methods of pseudo-randomizing the initial ball position/velocity
 - Change ball velocity when hitting P1 or CPU paddle
 - CPU difficulty modes
