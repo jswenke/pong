@@ -27,12 +27,12 @@
 #
 # 3. The following remote source files that were added to the original project:-
 #
-#    "C:/Users/Jacob/Desktop/FPGA_study/Github/Repos/pong/hdl/button_debounce.vhd"
-#    "C:/Users/Jacob/Desktop/FPGA_study/Github/Repos/pong/hdl/video_timings_pkg.vhd"
-#    "C:/Users/Jacob/Desktop/FPGA_study/Github/Repos/pong/hdl/pong_game_logic.vhd"
-#    "C:/Users/Jacob/Desktop/FPGA_study/Github/Repos/pong/hdl/top.vhd"
-#    "C:/Users/Jacob/Desktop/FPGA_study/Github/Repos/pong/hdl/xilinx/clk_wiz_0/clk_wiz_0.xci"
-#    "C:/Users/Jacob/Desktop/FPGA_study/Github/Repos/pong/constraints/nexysa7_constraints.xdc"
+#    "/pong/hdl/button_debounce.vhd"
+#    "/pong/hdl/video_timings_pkg.vhd"
+#    "/pong/hdl/pong_game_logic.vhd"
+#    "/pong/hdl/top.vhd"
+#    "/pong/hdl/xilinx/clk_wiz_0/clk_wiz_0.xci"
+#    "/pong/constraints/nexysa7_constraints.xdc"
 #
 #*****************************************************************************************
 
@@ -119,6 +119,9 @@ if { $::argc > 0 } {
     }
   }
 }
+
+set path $origin_dir/../project
+file mkdir $path
 
 # Set the directory path for the original project from where this script was exported
 set orig_proj_dir "[file normalize "$origin_dir/../project"]"
